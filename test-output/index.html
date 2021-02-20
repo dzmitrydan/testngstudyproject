@@ -489,7 +489,7 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'method2')
 data.setCell(0, 2, 'test.TestC')
-data.setCell(0, 3, 1);
+data.setCell(0, 3, 0);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'method1')
 data.setCell(1, 2, 'test.TestC')
@@ -498,7 +498,7 @@ window.suiteTableData['TestSuiteC']= { tableData: data, tableDiv: 'times-div-Tes
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 ms</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-TestSuiteC">
               </div> <!-- times-div-TestSuiteC -->
             </div> <!-- times-div -->
@@ -520,18 +520,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'method2')
+data.setCell(0, 1, 'method1')
 data.setCell(0, 2, 'test.TestB')
-data.setCell(0, 3, 0);
+data.setCell(0, 3, 1);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'method1')
+data.setCell(1, 1, 'method2')
 data.setCell(1, 2, 'test.TestB')
-data.setCell(1, 3, 0);
+data.setCell(1, 3, 1);
 window.suiteTableData['TestSuiteB']= { tableData: data, tableDiv: 'times-div-TestSuiteB'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 2 ms</span>
               <div id="times-div-TestSuiteB">
               </div> <!-- times-div-TestSuiteB -->
             </div> <!-- times-div -->
@@ -555,11 +555,11 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'method1')
 data.setCell(0, 2, 'test.TestA')
-data.setCell(0, 3, 7);
+data.setCell(0, 3, 6);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'method2')
 data.setCell(1, 2, 'test.TestA')
-data.setCell(1, 3, 0);
+data.setCell(1, 3, 1);
 window.suiteTableData['TestSuiteA']= { tableData: data, tableDiv: 'times-div-TestSuiteA'}
 return data;
 }
@@ -642,7 +642,7 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">method2</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">1 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -659,7 +659,7 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">method2</span>
-                <span class="method-start">11 ms</span>
+                <span class="method-start">8 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
