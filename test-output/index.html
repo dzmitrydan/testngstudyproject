@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -105,11 +105,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-TestSuiteC" title="test.TestC" class="method navigator-link" hash-for-method="method1">method1</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuiteC" title="test.TestC" class="method navigator-link" hash-for-method="method2">method2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuiteC -->
@@ -177,7 +172,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -186,11 +181,6 @@
                       <a href="#" panel-name="suite-TestSuiteB" class="show-methods passed suite-TestSuiteB"> (show)</a> <!-- show-methods passed suite-TestSuiteB -->
                     </span>
                     <div class="method-list-content passed suite-TestSuiteB">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuiteB" title="test.TestB" class="method navigator-link" hash-for-method="method1">method1</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-TestSuiteB" title="test.TestB" class="method navigator-link" hash-for-method="method2">method2</a> <!-- method navigator-link -->
@@ -261,7 +251,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -273,11 +263,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-TestSuiteA" title="test.TestA" class="method navigator-link" hash-for-method="method1">method1</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuiteA" title="test.TestA" class="method navigator-link" hash-for-method="method2">method2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuiteA -->
@@ -305,13 +290,6 @@
                   <span class="method-name">method1</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="method2">
-                  </a> <!-- method2 -->
-                  <span class="method-name">method2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-TestSuiteC-class-passed -->
         </div> <!-- panel TestSuiteC -->
@@ -322,13 +300,6 @@
               <span class="class-name">test.TestB</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="method1">
-                  </a> <!-- method1 -->
-                  <span class="method-name">method1</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="method2">
@@ -353,13 +324,6 @@
                   <span class="method-name">method1</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="method2">
-                  </a> <!-- method2 -->
-                  <span class="method-name">method2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-TestSuiteA-class-passed -->
         </div> <!-- panel TestSuiteA -->
@@ -373,7 +337,11 @@
 &lt;suite name=&quot;TestSuiteC&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;TestC&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.TestC&quot;/&gt;
+      &lt;class name=&quot;test.TestC&quot;&gt;
+        &lt;methods&gt;
+          &lt;exclude name=&quot;method2&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test.TestC --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- TestC --&gt;
 &lt;/suite&gt; &lt;!-- TestSuiteC --&gt;
@@ -390,7 +358,11 @@
 &lt;suite name=&quot;TestSuiteB&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;TestB&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.TestB&quot;/&gt;
+      &lt;class name=&quot;test.TestB&quot;&gt;
+        &lt;methods&gt;
+          &lt;exclude name=&quot;method1&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test.TestB --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- TestB --&gt;
 &lt;/suite&gt; &lt;!-- TestSuiteB --&gt;
@@ -407,7 +379,11 @@
 &lt;suite name=&quot;TestSuiteA&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;TestA&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.TestA&quot;/&gt;
+      &lt;class name=&quot;test.TestA&quot;&gt;
+        &lt;methods&gt;
+          &lt;exclude name=&quot;method2&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test.TestA --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- TestA --&gt;
 &lt;/suite&gt; &lt;!-- TestSuiteA --&gt;
@@ -485,15 +461,11 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'method2')
+data.setCell(0, 1, 'method1')
 data.setCell(0, 2, 'test.TestC')
 data.setCell(0, 3, 0);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'method1')
-data.setCell(1, 2, 'test.TestC')
-data.setCell(1, 3, 0);
 window.suiteTableData['TestSuiteC']= { tableData: data, tableDiv: 'times-div-TestSuiteC'}
 return data;
 }
@@ -518,20 +490,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'method1')
+data.setCell(0, 1, 'method2')
 data.setCell(0, 2, 'test.TestB')
 data.setCell(0, 3, 1);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'method2')
-data.setCell(1, 2, 'test.TestB')
-data.setCell(1, 3, 1);
 window.suiteTableData['TestSuiteB']= { tableData: data, tableDiv: 'times-div-TestSuiteB'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 ms</span>
+              <span class="suite-total-time">Total running time: 1 ms</span>
               <div id="times-div-TestSuiteB">
               </div> <!-- times-div-TestSuiteB -->
             </div> <!-- times-div -->
@@ -551,20 +519,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'method1')
 data.setCell(0, 2, 'test.TestA')
-data.setCell(0, 3, 6);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'method2')
-data.setCell(1, 2, 'test.TestA')
-data.setCell(1, 3, 1);
+data.setCell(0, 3, 5);
 window.suiteTableData['TestSuiteA']= { tableData: data, tableDiv: 'times-div-TestSuiteA'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 ms</span>
+              <span class="suite-total-time">Total running time: 5 ms</span>
               <div id="times-div-TestSuiteA">
               </div> <!-- times-div-TestSuiteA -->
             </div> <!-- times-div -->
@@ -593,23 +557,44 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestSuiteC" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">test.TestC</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">method2</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestSuiteB" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">test.TestB</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">method1</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestSuiteA" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">test.TestA</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">method2</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-TestSuiteC" class="panel">
@@ -623,10 +608,6 @@ return data;
                 <span class="method-name">method1</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">method2</span>
-                <span class="method-start">1 ms</span>
-              </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-TestSuiteB" class="panel">
@@ -637,12 +618,8 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">test.TestB</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">method1</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
                 <span class="method-name">method2</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -656,10 +633,6 @@ return data;
               <div class="test-method">
                 <span class="method-name">method1</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">method2</span>
-                <span class="method-start">8 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
