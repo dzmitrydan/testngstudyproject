@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class TestBuilder {
 
-    public static XmlSuite suiteBuilder(String testClassName, String methodName, String[] methodParameters) {
+    public static XmlSuite buildTestSuite(String testClassName, String methodName, String[] methodParameters) {
         XmlSuite suite = new XmlSuite();
         suite.setName("TestSuite" + testClassName);
         XmlTest test = new XmlTest(suite);

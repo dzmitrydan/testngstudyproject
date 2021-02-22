@@ -1,16 +1,20 @@
-plugins {
-    id 'java'
-}
-
 group 'org.example'
 version '1.0-SNAPSHOT'
+apply plugin: 'java'
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    testngVersion = '7.3.0'
+    poiooxmlVersion = '5.0.0'
+}
+
 dependencies {
-    testImplementation group: 'org.testng', name: 'testng', version: '7.3.0'
+    testImplementation group: 'org.testng', name: 'testng', version: "$testngVersion"
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: "$poiooxmlVersion"
 }
 
 test {
