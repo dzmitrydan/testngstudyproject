@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestSourceTXT implements TestSource {
@@ -40,6 +41,9 @@ public class TestSourceTXT implements TestSource {
         data.setTestClassName(testClassName);
         data.setMethodName(methodName);
         data.setMethodParameters(methodParameters);
+
+        System.out.println(data.getTestClassName() + ", " + data.getMethodName() + "," + Arrays.toString(data.getMethodParameters()));
+
         return data;
     }
 

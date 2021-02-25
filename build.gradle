@@ -15,6 +15,9 @@ ext {
 dependencies {
     testImplementation group: 'org.testng', name: 'testng', version: "$testngVersion"
     implementation group: 'org.apache.poi', name: 'poi-ooxml', version: "$poiooxmlVersion"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.3.1'
+    implementation group: 'com.google.inject', name: 'guice', version: '4.2.3'
 }
 
 test {
