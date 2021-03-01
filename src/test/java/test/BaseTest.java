@@ -1,15 +1,12 @@
 package test;
 
-import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
-import driver.GuiceDriverManager;
+import driver.ParentModule;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
+@Guice(modules = {ParentModule.class})
 public class BaseTest {
-    final Injector injector = Guice.createInjector(new GuiceDriverManager());
 
     @Inject
     WebDriver driver;

@@ -1,21 +1,29 @@
 package test;
 
-import driver.WebDriverProvider;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import page.GooglePage;
+import page.YandexPage;
 
 public class GoogleTest extends BaseTest {
 
     @Parameters({"param1"})
     @Test
-    public void openGoogleTest(String param1) {
-        WebDriverProvider.setWebBrowser(param1);
-        injector.injectMembers(this);
-        GooglePage googlePage = new GooglePage(driver);
-        googlePage.openPage();
-        System.out.println("Execute test on " + param1);
-        Assert.assertEquals(googlePage.getUrl(), "https://www.google.com/");
+    public void openPageTest(String param1) {
+        System.out.println(driver);
+
+        GooglePage googlePage = new GooglePage(driver).openPage().search(param1);
+        YandexPage yandexPage = googlePage.openFirstSite();
+        Assert.assertEquals(yandexPage.getUrl(), "https://yandex.by/");
+    }
+
+    @Parameters({"param1"})
+    @Test
+    public void searchTest(String param1) {
+        System.out.println(driver);
+
+        GooglePage googlePage = new GooglePage(driver).openPage().search(param1);
+        Assert.assertTrue(googlePage.isNotEmpty());
     }
 }

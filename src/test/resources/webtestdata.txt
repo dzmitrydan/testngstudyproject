@@ -1,2 +1,4 @@
-GoogleTest, openGoogleTest,firefox
-GoogleTest, openGoogleTest,chrome
+GoogleTest, openPageTest,yandex
+YandexTest, searchTest,google
+GoogleTest, searchTest,yandex
+YandexTest, openPageTest,yandex;google

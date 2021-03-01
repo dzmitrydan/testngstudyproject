@@ -1,23 +1,33 @@
 package driver;
 
-import com.google.inject.Provider;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class WebDriverProvider implements Provider<DriverInterface> {
+public class WebDriverProvider {
 
-    private static String webBrowser;
+    private WebDriver driver;
+    private static String webBrowser = "chrome";
 
-    public static void setWebBrowser(String string) {
-        webBrowser = string;
-    }
-
-    @Override
-    public DriverInterface get() {
-
-        if (webBrowser.equals("chrome")) {
-            return new ChromeDriverManager();
+    public WebDriver getDriver() {
+        switch (webBrowser) {
+            case "firefox": {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            }
+            case "chrome": {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            }
+            default: {
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+            }
         }
-        else {
-            return new FirefoxDriverManager();
-        }
+        return driver;
     }
 }

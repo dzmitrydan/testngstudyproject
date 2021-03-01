@@ -1,5 +1,6 @@
 package service;
 
+import driver.ParentModule;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlInclude;
 import org.testng.xml.XmlSuite;

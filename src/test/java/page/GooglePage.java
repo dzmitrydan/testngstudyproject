@@ -1,15 +1,22 @@
 package page;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class GooglePage {
+import java.util.List;
 
-    private final WebDriver driver;
+public class GooglePage extends AbstractPage {
+
+    @FindBy(name = "q")
+    private WebElement inputSearch;
+
+    @FindBy(className = "LC20lb")
+    private List<WebElement> result;
 
     public GooglePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public GooglePage openPage() {
@@ -17,7 +24,18 @@ public class GooglePage {
         return this;
     }
 
-    public String getUrl() {
-        return driver.getCurrentUrl();
+    public GooglePage search(String text) {
+        inputSearch.sendKeys(text);
+        inputSearch.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    public boolean isNotEmpty() {
+        return !result.isEmpty();
+    }
+
+    public YandexPage openFirstSite() {
+        result.get(0).click();
+        return new YandexPage(driver);
     }
 }
