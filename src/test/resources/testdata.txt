@@ -1,4 +1,4 @@
-GoogleTest, openPageTest,yandex
+GoogleTest, siteSearchTest,yandex
 YandexTest, searchTest,google
 GoogleTest, searchTest,yandex
 YandexTest, openPageTest,yandex;google

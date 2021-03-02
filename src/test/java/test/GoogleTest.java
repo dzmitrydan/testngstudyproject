@@ -10,7 +10,7 @@ public class GoogleTest extends BaseTest {
 
     @Parameters({"param1"})
     @Test
-    public void openPageTest(String param1) {
+    public void siteSearchTest(String param1) {
         System.out.println(driver);
 
         GooglePage googlePage = new GooglePage(driver).openPage().search(param1);

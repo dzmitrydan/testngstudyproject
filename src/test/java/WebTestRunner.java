@@ -10,7 +10,7 @@ import java.util.List;
 
 public class WebTestRunner {
     private static final String filePath = "src/test/resources";
-    private static final String fileName = "webtestdata.txt";
+    private static final String fileName = "testdata.txt";
 
     public static void main(String[] args) {
 
