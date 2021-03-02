@@ -6,12 +6,14 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestSourceEXCEL implements TestSource {
-    private String sheetName = "Sheet1";
+    private final String sheetName = "Sheet1";
 
     @Override
     public List<TestData> readData(String filePath, String fileName) {
@@ -38,6 +40,9 @@ public class TestSourceEXCEL implements TestSource {
                 data.setTestClassName(row.getCell(0).getStringCellValue());
                 data.setMethodName(row.getCell(1).getStringCellValue());
                 data.setMethodParameters(row.getCell(2).getStringCellValue().split(";"));
+
+                System.out.println(data.getTestClassName() + ", " + data.getMethodName() + "," + Arrays.toString(data.getMethodParameters()));
+
                 listData.add(data);
             }
 
