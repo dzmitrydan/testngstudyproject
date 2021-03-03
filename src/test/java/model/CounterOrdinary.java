@@ -1,7 +1,7 @@
 package model;
 
 public class CounterOrdinary implements Counter {
-    private static int number;
+    private int number;
 
     @Override
     public int getNumber() {

@@ -1,18 +1,28 @@
-import service.*;
+package test;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import module.ParentModule;
+import service.FileExtensionNameSelector;
+import service.ParameterBuilderForReflection;
+import service.TestClassProvider;
 import test.base.BaseTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionTestRunner {
+
     private static final String filePath = "src/test/resources";
     private static final String fileName = "testdata.txt";
+    public static Injector injector = Guice.createInjector(new ParentModule());
 
     public static void main(String[] args) {
 
         FileExtensionNameSelector.getFileReader(fileName).readData(filePath, fileName).forEach(data -> {
             System.out.println("------------------------");
             System.out.println("TestSuite" + data.getTestClassName());
+
             BaseTest testObject = TestClassProvider.TestClassByName(data.getTestClassName());
 
             Class testClass = testObject.getClass();
