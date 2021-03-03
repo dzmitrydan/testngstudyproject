@@ -1,6 +1,7 @@
 package service;
 
 import test.*;
+import test.base.BaseTest;
 
 public class TestClassProvider {
 

@@ -1,12 +1,12 @@
 import service.*;
-import test.*;
+import test.base.BaseTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionTestRunner {
     private static final String filePath = "src/test/resources";
-    private static final String fileName = "testdata.xlsx";
+    private static final String fileName = "testdata.txt";
 
     public static void main(String[] args) {
 

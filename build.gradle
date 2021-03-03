@@ -13,6 +13,7 @@ ext {
 
 dependencies {
     implementation group: 'org.apache.poi', name: 'poi-ooxml', version: "$poiooxmlVersion"
+    implementation group: 'com.google.inject', name: 'guice', version: '4.2.3'
 }
 
 test {
