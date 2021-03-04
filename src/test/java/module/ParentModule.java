@@ -1,7 +1,6 @@
 package module;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Injector;
 import com.google.inject.Scopes;
 import model.CounterOrdinary;
 import model.Counter;
