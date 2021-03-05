@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class TestData {
     private String testClassName;
     private String methodName;
@@ -27,5 +29,14 @@ public class TestData {
 
     public void setMethodParameters(String[] methodParameters) {
         this.methodParameters = methodParameters;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName()
+                + " (" + hashCode() + ")"
+                + ": testClassName = " + testClassName
+                + "; methodName = " + methodName
+                + "; methodParameters = " + Arrays.toString(methodParameters);
     }
 }
