@@ -1,40 +1,33 @@
 package page;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.By;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-import java.util.List;
+public class YandexPage {
 
-public class YandexPage extends AbstractPage {
+    private By inputSearch = By.id("text");
+    private By result = By.className("OrganicTitle-LinkText");
 
-    @FindBy(id = "text")
-    private WebElement inputSearch;
-
-    @FindBy(className = "OrganicTitle-LinkText")
-    private List<WebElement> result;
-
-    public YandexPage(WebDriver driver) {
-        super(driver);
-    }
 
     public YandexPage openPage() {
-        driver.get("https://yandex.by/");
+        Selenide.open("https://yandex.by/");
         return this;
     }
 
     public YandexPage search(String text) {
-        inputSearch.sendKeys(text);
-        inputSearch.sendKeys(Keys.ENTER);
+        $(inputSearch).val(text);
+        $(inputSearch).pressEnter();
         return this;
     }
 
     public String getUrl() {
-        return driver.getCurrentUrl();
+        return WebDriverRunner.url();
     }
 
     public boolean isNotEmpty() {
-        return !result.isEmpty();
+        return !$$(result).isEmpty();
     }
 }

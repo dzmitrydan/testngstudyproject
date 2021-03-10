@@ -1,10 +1,9 @@
-import driver.WebDriverProvider;
+
 import org.testng.TestNG;
 import org.testng.xml.XmlSuite;
 import service.FileExtensionNameSelector;
 import service.TestBuilder;
 import service.TestSource;
-
 import java.util.ArrayList;
 import java.util.List;
 

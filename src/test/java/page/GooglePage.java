@@ -1,41 +1,33 @@
 package page;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.By;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-import java.util.List;
+public class GooglePage {
 
-public class GooglePage extends AbstractPage {
-
-    @FindBy(name = "q")
-    private WebElement inputSearch;
-
-    @FindBy(className = "LC20lb")
-    private List<WebElement> result;
-
-    public GooglePage(WebDriver driver) {
-        super(driver);
-    }
+    private By inputSearch = By.name("q");
+    private By result = By.className("LC20lb");
 
     public GooglePage openPage() {
-        driver.get("https://www.google.com");
+        Selenide.open("https://www.google.com");
         return this;
     }
 
     public GooglePage search(String text) {
-        inputSearch.sendKeys(text);
-        inputSearch.sendKeys(Keys.ENTER);
+        $(inputSearch).setValue(text);
+        $(inputSearch).pressEnter();
         return this;
     }
 
     public boolean isNotEmpty() {
-        return !result.isEmpty();
+        return $(result).isDisplayed();
     }
 
     public YandexPage openFirstSite() {
-        result.get(0).click();
-        return new YandexPage(driver);
+        $$(result).first().click();
+        return new YandexPage();
     }
+
 }
