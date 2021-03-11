@@ -3,11 +3,12 @@ package test;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import page.YandexPage;
+import page.YandexResultPage;
+import page.YandexSearchPage;
 
 import java.lang.reflect.Method;
 
-public class YandexTest {
+public class YandexTest extends BaseTest {
 
     @Parameters({"param1", "param2"})
     @Test
@@ -15,8 +16,8 @@ public class YandexTest {
         Method[] methods = getClass().getMethods();
         System.out.println(methods[0] + " : " + param1 + " : " + param2);
 
-        YandexPage yandexPage = new YandexPage().openPage();
-        Assert.assertEquals(yandexPage.getUrl(), "https://yandex.by/");
+        YandexSearchPage yandexSearchPage = new YandexSearchPage().openPage();
+        Assert.assertEquals(yandexSearchPage.getUrl(), "https://yandex.by/");
     }
 
     @Parameters({"param1"})
@@ -25,7 +26,7 @@ public class YandexTest {
         Method[] methods = getClass().getMethods();
         System.out.println(methods[1] + " : " + param1);
 
-        YandexPage yandexPage = new YandexPage().openPage().search(param1);
-        Assert.assertTrue(yandexPage.isNotEmpty());
+        YandexResultPage yandexResultPage = new YandexSearchPage().openPage().search(param1);
+        Assert.assertTrue(yandexResultPage.isNotEmpty());
     }
 }

@@ -3,12 +3,13 @@ package test;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import page.GooglePage;
-import page.YandexPage;
+import page.GoogleResultPage;
+import page.GoogleSearchPage;
+import page.YandexSearchPage;
 
 import java.lang.reflect.Method;
 
-public class GoogleTest {
+public class GoogleTest extends BaseTest {
 
     @Parameters({"param1"})
     @Test
@@ -16,9 +17,9 @@ public class GoogleTest {
         Method[] methods = getClass().getMethods();
         System.out.println(methods[0] + " : " + param1);
 
-        GooglePage googlePage = new GooglePage().openPage().search(param1);
-        YandexPage yandexPage = googlePage.openFirstSite();
-        Assert.assertEquals(yandexPage.getUrl(), "https://yandex.by/");
+        GoogleResultPage googleResultPage = new GoogleSearchPage().openPage().search(param1);
+        YandexSearchPage yandexSearchPage = googleResultPage.openFirstSite();
+        Assert.assertEquals(yandexSearchPage.getUrl(), "https://yandex.by/");
     }
 
     @Parameters({"param1"})
@@ -27,8 +28,8 @@ public class GoogleTest {
         Method[] methods = getClass().getMethods();
         System.out.println(methods[1] + " : " + param1);
 
-        GooglePage googlePage = new GooglePage().openPage().search("yandex");
-        Assert.assertTrue(googlePage.isNotEmpty());
+        GoogleResultPage googleResultPage = new GoogleSearchPage().openPage().search(param1);
+        Assert.assertTrue(googleResultPage.getResult().isEmpty());
     }
 
 }

@@ -4,30 +4,24 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
-public class YandexPage {
+public class YandexSearchPage {
 
     private By inputSearch = By.id("text");
-    private By result = By.className("OrganicTitle-LinkText");
 
-
-    public YandexPage openPage() {
+    public YandexSearchPage openPage() {
         Selenide.open("https://yandex.by/");
         return this;
     }
 
-    public YandexPage search(String text) {
+    public YandexResultPage search(String text) {
         $(inputSearch).val(text);
         $(inputSearch).pressEnter();
-        return this;
+        return new YandexResultPage();
     }
 
     public String getUrl() {
         return WebDriverRunner.url();
     }
 
-    public boolean isNotEmpty() {
-        return !$$(result).isEmpty();
-    }
 }
